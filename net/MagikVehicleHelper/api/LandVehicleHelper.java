@@ -1,6 +1,5 @@
 package net.MagikVehicleHelper.api;
 
-import com.troublesometrio.spncraft.main.SupernaturalCraft;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
@@ -48,12 +47,12 @@ public class LandVehicleHelper extends EntityLiving
 	@Override
 	protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_)
 	{
-		playSound(SupernaturalCraft.MODID + ":" + getMovingSound(), 0.15F, 1.0F);
+		playSound(YourModId.MODID + ":" + getMovingSound(), 0.15F, 1.0F);
 	}
 
 	public String getMovingSound()
 	{
-		return "engine_rev";
+		return "";
 	}
 
 	/**
