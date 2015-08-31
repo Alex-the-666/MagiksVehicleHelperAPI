@@ -8,7 +8,7 @@ import cpw.mods.fml.common.API;
  * to only be used if I  Have Given Permission to do so. Chances Are If you do have this you know me so you can go ahead and
  * delete this if you would like. I do not intend to release this to the republic and is for friends only.
  * 
- * (This Version Of The API Is For the SuperNaturalCraft Mod ONLY)
+ * (This Version Of The API Is For the JurassiCraft 2, SuperNaturalCraft, or Steven Universe Mod ONLY)
  * 
  * API = Magik's Vehicle Helper API
  * 
