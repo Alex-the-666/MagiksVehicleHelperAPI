@@ -12,18 +12,12 @@ protected String channelName = "MagikVehicleHelperAPI";
 	@SubscribeEvent
 	public void onServerPacket(ServerCustomPacketEvent event) throws IOException
 	{
-
-		
-		
-		
+	
 	}
 
 	@SubscribeEvent
 	public void onClientPacket(ClientCustomPacketEvent event) throws IOException
 	{	
-		
-		
-		
-		
+	
 	}
 }
