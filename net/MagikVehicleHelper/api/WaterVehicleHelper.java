@@ -43,7 +43,7 @@ public class WaterVehicleHelper extends EntityLiving{
 	
 	public boolean canBePushed()
 	    {
-	        return true;
+	        return false;
 	    }
 	
 	@Override
@@ -57,7 +57,7 @@ public class WaterVehicleHelper extends EntityLiving{
 	
 	public String getMovingSound()
 	{
-		return null;
+		return EngineSound;
 	}
 
 	@Override
