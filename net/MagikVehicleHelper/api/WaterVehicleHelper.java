@@ -1,7 +1,5 @@
 package net.MagikVehicleHelper.api;
 
-import com.troublesometrio.spncraft.main.SupernaturalCraft;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLiving;
@@ -13,37 +11,29 @@ import net.minecraft.world.World;
 
 /**
  * 
- * Extend this into your Entity.
+ * Have your entity extend this class if it is a water vehicle.
  * 
  * @author Magik
  */
 
 
-public class WaterVehicleHelper extends EntityLiving
-
-
-
-{
+public class WaterVehicleHelper extends EntityLiving{
+	
 	public static Boolean isBoatEmpty = true;
 	public float vehicXOffset = 0;
 	public float vehicYOffset = 0;
 	public float vehicZOffset = 0;
-
 	public float moveModifier = 1F;
-	
-	
-	public WaterVehicleHelper(World p_i1689_1_) {
-			super(p_i1689_1_);
-			setSize(0.9F, 0.9F);
-			isImmuneToFire = true;
+	protected String soundname;
+	public WaterVehicleHelper(World world, String soundname) {
+		super(world);
+		setSize(0.9F, 0.9F);
+		isImmuneToFire = true;
 	        this.motionX = 0.0D;
 	        this.motionY = 0.0D;
 	        this.motionZ = 0.0D;
-	 
+	 	this.soundname = soundname;
 	}
-	
-
-
 
 	@Override
 	public boolean canRenderOnFire()
@@ -51,35 +41,31 @@ public class WaterVehicleHelper extends EntityLiving
 		return false;
 	}
 	
-	 public boolean canBePushed()
+	public boolean canBePushed()
 	    {
 	        return true;
 	    }
 	
 	@Override
-	public void fall(float p1)
-	{
-		return;
-	}
+	public void fall(float p1){}
 
 	@Override
 	protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_)
 	{
-		playSound(YourModId.MODID + ":" + getMovingSound(), 0.15F, 1.0F);
+		playSound(soundname, 0.15F, 1.0F);
 	}
 	
 	public String getMovingSound()
 	{
-		return "";
+		return null;
 	}
 
-	
 	@Override
-	public boolean interact(EntityPlayer p_70085_1_)
+	public boolean interact(EntityPlayer player)
 	{
-		if (!worldObj.isRemote && (riddenByEntity == null || riddenByEntity == p_70085_1_))
+		if (!worldObj.isRemote && (riddenByEntity == null || riddenByEntity == player))
 		{
-			p_70085_1_.mountEntity(this);
+			player.mountEntity(this);
 			return true;
 		}
 		else
@@ -125,18 +111,8 @@ public class WaterVehicleHelper extends EntityLiving
 	                for (int j1 = 0; j1 < 2; ++j1)
 	                {
 	                    int k = MathHelper.floor_double(this.posY) + j1;
-	         
-	               
 	                }
 		}
-	}
-
-	@Override
-	public void onUpdate()
-	{
-		super.onUpdate();
-
-		moveEntityWithHeading(0, 0);
 	}
 
 	@Override

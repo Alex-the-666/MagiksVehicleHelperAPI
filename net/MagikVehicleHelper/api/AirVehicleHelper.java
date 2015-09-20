@@ -1,7 +1,5 @@
 package net.MagikVehicleHelper.api;
 
-import com.troublesometrio.spncraft.main.SupernaturalCraft;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -27,12 +25,14 @@ public class AirVehicleHelper extends EntityLiving
 	public float vehicZOffset = 0;
 
 	public float moveModifier = 1F;
+	protected String soundname;
 
-	public AirVehicleHelper(World p_i1689_1_)
+	public AirVehicleHelper(World p_i1689_1_, String soundname)
 	{
 		super(p_i1689_1_);
 		setSize(0.9F, 0.9F);
 		isImmuneToFire = true;
+		this.soundname = soundname;
 	}
 
 	@Override
@@ -50,12 +50,12 @@ public class AirVehicleHelper extends EntityLiving
 	@Override
 	protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_)
 	{
-		playSound(YourModId.MODID + ":" + getMovingSound(), 0.15F, 1.0F);
+		playSound(soundname, 0.15F, 1.0F);
 	}
 
 	public String getMovingSound()
 	{
-		return "";
+		return null;
 	}
 
 	/**
@@ -117,8 +117,6 @@ public class AirVehicleHelper extends EntityLiving
 	public void onUpdate()
 	{
 		super.onUpdate();
-
-		moveEntityWithHeading(0, 0);
 	}
 
 	@Override
