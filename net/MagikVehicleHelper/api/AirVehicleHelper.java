@@ -18,7 +18,7 @@ import net.minecraft.world.World;
  */
 
 
-public class AirVehicleHelper extends EntityLiving
+public class AirVehicleHelper extends EntityMob
 {
 	public float vehicXOffset = 5;
 	public float vehicYOffset = 0;
@@ -27,7 +27,7 @@ public class AirVehicleHelper extends EntityLiving
 	public float moveModifier = 1F;
 	protected String soundname;
 
-	public AirVehicleHelper(World p_i1689_1_, String soundname)
+	public AirVehicleHelper(World world, String soundname)
 	{
 		super(p_i1689_1_);
 		setSize(0.9F, 0.9F);
@@ -42,32 +42,28 @@ public class AirVehicleHelper extends EntityLiving
 	}
 
 	@Override
-	public void fall(float p1)
+	public void fall(float fall)
 	{
 		return;
 	}
 
 	@Override
-	protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_)
+	protected void MovingSound(int volume, int pitch, int length, Block block)
 	{
 		playSound(soundname, 0.15F, 1.0F);
 	}
 
-	public String getMovingSound()
-	{
-		return null;
-	}
 
 	/**
 	 * Called when a player interacts with a mob. e.g. gets milk from a cow,
 	 * gets into the saddle on a pig.
 	 */
 	@Override
-	public boolean interact(EntityPlayer p_70085_1_)
+	public boolean interact(EntityPlayer player)
 	{
-		if (!worldObj.isRemote && (riddenByEntity == null || riddenByEntity == p_70085_1_))
+		if (!worldObj.isRemote && (riddenByEntity == null || riddenByEntity == player))
 		{
-			p_70085_1_.mountEntity(this);
+			player.mountEntity(this);
 			return true;
 		}
 		else
