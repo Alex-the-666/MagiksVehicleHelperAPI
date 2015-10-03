@@ -29,7 +29,7 @@ public class AirVehicleHelper extends EntityMob
 
 	public AirVehicleHelper(World world, String soundname)
 	{
-		super(p_i1689_1_);
+		super(world);
 		setSize(0.9F, 0.9F);
 		isImmuneToFire = true;
 		this.soundname = soundname;
